@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Button from './Button';
@@ -27,20 +26,30 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <div className="z-10">
-          <a href="#" className="font-display text-xl font-bold tracking-tight">MONO<span className="font-light">BREW</span></a>
+          <a href="#" className={`font-display text-xl font-bold tracking-tight ${
+            isScrolled ? 'text-gray-900' : 'text-white'
+          }`}>MONO<span className="font-light">BREW</span></a>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
-          <a href="#about" className="text-sm font-medium link-hover">ABOUT</a>
-          <a href="#menu" className="text-sm font-medium link-hover">MENU</a>
-          <a href="#location" className="text-sm font-medium link-hover">LOCATION</a>
-          <Button variant="black">ORDER NOW</Button>
+          <a href="#about" className={`text-sm font-medium link-hover ${
+            isScrolled ? 'text-gray-900 hover:text-gray-700' : 'text-white hover:text-gray-200'
+          }`}>ABOUT</a>
+          <a href="#menu" className={`text-sm font-medium link-hover ${
+            isScrolled ? 'text-gray-900 hover:text-gray-700' : 'text-white hover:text-gray-200'
+          }`}>MENU</a>
+          <a href="#location" className={`text-sm font-medium link-hover ${
+            isScrolled ? 'text-gray-900 hover:text-gray-700' : 'text-white hover:text-gray-200'
+          }`}>LOCATION</a>
+          <Button variant={isScrolled ? "black" : "white"}>ORDER NOW</Button>
         </nav>
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden z-10 focus:outline-none" 
+          className={`md:hidden z-10 focus:outline-none ${
+            isScrolled ? 'text-gray-900' : 'text-white'
+          }`} 
           onClick={toggleMobileMenu}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
